@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class PrimeChecker {
+
+    
+    public static boolean isPrime(int num) {
+        // Numbers less than 2 are not prime
+        if (num <= 1) {
+            return false;
+        }
+        
+        // Check for divisibility from 2 up to the square root of num
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                // If num is divisible by any number other than 1 and itself, it's not prime
+                return false;
+            }
+        }
+        
+        // If the loop completes without finding any divisors, the number is prime
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number to check: ");
+        int inputNumber = scanner.nextInt();
+        scanner.close();
+
+        if (isPrime(inputNumber)) {
+            System.out.println(inputNumber + " is a prime number.");
+        } else {
+            System.out.println(inputNumber + " is not a prime number.");
+        }
+    }
+}
