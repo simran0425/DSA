@@ -1,0 +1,56 @@
+public class InversionCounter {
+
+    public static long countInversions(int[] arr) {
+        // Create a temporary array for the merge process
+        int[] temp = new int[arr.length];
+        return mergeSortAndCount(arr, temp, 0, arr.length - 1);
+    }
+
+    private static long mergeSortAndCount(int[] arr, int[] temp, int left, int right) {
+        long invCount = 0;
+        if (right > left) {
+            int mid = (left + right) / 2;
+            // Count inversions in left and right halves
+            invCount += mergeSortAndCount(arr, temp, left, mid);
+            invCount += mergeSortAndCount(arr, temp, mid + 1, right);
+            // Count inversions while merging the two halves
+            invCount += mergeAndCount(arr, temp, left, mid, right);
+        }
+        return invCount;
+    }
+
+    private static long mergeAndCount(int[] arr, int[] temp, int left, int mid, int right) {
+        int i = left; // Index for left subarray
+        int j = mid + 1; // Index for right subarray
+        int k = 0; // Index for temporary merged array
+        long invCount = 0;
+
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                // Inversion found: all remaining elements in the left subarray
+                // (from i to mid) are greater than arr[j]
+                temp[k++] = arr[j++];
+                invCount += (mid - i + 1);
+            }
+        }
+
+        // Copy remaining elements of left subarray
+        while (i <= mid) {
+            temp[k++] = arr[i++];
+        }
+
+        // Copy remaining elements of right subarray
+        while (j <= right) {
+            temp[k++] = arr[j++];
+        }
+
+        // Copy merged elements back to original array
+        for (i = 0; i < k; i++) {
+            arr[left + i] = temp[i];
+        }
+
+        return invCount;
+    }
+}
