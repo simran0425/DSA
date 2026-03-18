@@ -1,0 +1,23 @@
+public class PerfectSquareChecker {
+    public static boolean isPerfectSquare(int num) {
+        if (num < 0) {
+            return false; // Perfect squares are always non-negative
+        }
+        // Calculate the square root
+        double sqrtValue = Math.sqrt(num);
+        
+        // Cast the square root to an integer (truncates decimal part)
+        int intSqrt = (int) sqrtValue;
+        
+        // Check if the square of the integer value equals the original number
+        return intSqrt * intSqrt == num;
+    }
+
+    public static void main(String[] args) {
+        int number1 = 16;
+        int number2 = 14;
+
+        System.out.println(number1 + " is a perfect square: " + isPerfectSquare(number1));
+        System.out.println(number2 + " is a perfect square: " + isPerfectSquare(number2));
+    }
+}
