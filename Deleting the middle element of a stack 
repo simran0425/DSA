@@ -1,0 +1,39 @@
+import java.util.Stack;
+
+public class Q{
+    // Function to delete the middle element of a stack
+    public static void deleteMiddle(Stack<Integer> stack, int current, int size) {
+        // Base case: if stack is empty or all elements are processed
+        if (stack.isEmpty() || current == size) {
+            return;
+        }
+
+        // Pop the top element and store it
+        int temp = stack.pop();
+        
+        // Recursively call the function for the remaining stack
+        deleteMiddle(stack, current + 1, size);
+
+        // Push all elements back except the middle one
+        // Middle index (0-based) is size / 2
+        if (current != size / 2) {
+            stack.push(temp);
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+
+        int size = stack.size();
+        // Call the function to delete the middle element.
+        // Initial current is 0.
+        deleteMiddle(stack, 0, size); 
+
+        System.out.println("Stack after deleting middle element: " + stack); // Output: [1, 2, 4, 5]
+    }
+}
