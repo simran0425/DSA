@@ -1,0 +1,29 @@
+class Queue {
+    int front = 0, rear = -1;
+    int[] q = new int[5];
+
+    void enqueue(int x) {
+        if (rear == 4) {
+            System.out.println("Overflow");
+        } else {
+            q[++rear] = x;
+        }
+    }
+
+    void dequeue() {
+        if (front > rear) {
+            System.out.println("Underflow");
+        } else {
+            System.out.println("Removed: " + q[front++]);
+        }
+    }
+}
+
+public class QueueDemo {
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.enqueue(10);
+        q.enqueue(20);
+        q.dequeue();
+    }
+}
