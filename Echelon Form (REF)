@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class EchelonForm {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int m, n;
+        System.out.print("Enter rows and columns: ");
+        m = sc.nextInt();
+        n = sc.nextInt();
+
+        double[][] a = new double[m][n];
+
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextDouble();
+            }
+        }
+
+        int lead = 0;
+        for (int r = 0; r < m; r++) {
+            if (lead >= n)
+                break;
+
+            int i = r;
+            while (a[i][lead] == 0) {
+                i++;
+                if (i == m) {
+                    i = r;
+                    lead++;
+                    if (lead == n)
+                        break;
+                }
+            }
+
+            // Swap rows
+            double[] temp = a[r];
+            a[r] = a[i];
+            a[i] = temp;
+
+            // Make leading element = 1
+            double lv = a[r][lead];
+            if (lv != 0) {
+                for (int j = 0; j < n; j++)
+                    a[r][j] /= lv;
+            }
+
+            // Make below elements 0
+            for (int k = r + 1; k < m; k++) {
+                double factor = a[k][lead];
+                for (int j = 0; j < n; j++) {
+                    a[k][j] -= factor * a[r][j];
+                }
+            }
+
+            lead++;
+        }
+
+        // Print Result
+        System.out.println("Row Echelon Form:");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.printf("%.2f ", a[i][j]);
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}
