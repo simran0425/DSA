@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class RowPictureMethod {
+    
+    // Function to convert matrix to Row Echelon Form
+    public static void rowEchelonForm(double[][] matrix, int rows, int cols) {
+        int lead = 0;
+
+        for (int r = 0; r < rows; r++) {
+            if (lead >= cols)
+                return;
+
+            int i = r;
+            while (matrix[i][lead] == 0) {
+                i++;
+                if (i == rows) {
+                    i = r;
+                    lead++;
+                    if (lead == cols)
+                        return;
+                }
+            }
+
+            // Swap rows
+            double[] temp = matrix[r];
+            matrix[r] = matrix[i];
+            matrix[i] = temp;
+
+            // Make pivot = 1
+            double pivot = matrix[r][lead];
+            for (int j = 0; j < cols; j++) {
+                matrix[r][j] /= pivot;
+            }
+
+            // Make other elements in column zero
+            for (int k = 0; k < rows; k++) {
+                if (k != r) {
+                    double factor = matrix[k][lead];
+                    for (int j = 0; j < cols; j++) {
+                        matrix[k][j] -= factor * matrix[r][j];
+                    }
+                }
+            }
+            lead++;
+        }
+    }
+
+    // Function to print matrix
+    public static void printMatrix(double[][] matrix, int rows, int cols) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.printf("%.2f ", matrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        int cols = sc.nextInt();
+
+        double[][] matrix = new double[rows][cols];
+
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = sc.nextDouble();
+            }
+        }
+
+        rowEchelonForm(matrix, rows, cols);
+
+        System.out.println("Row Echelon Form:");
+        printMatrix(matrix, rows, cols);
+
+        sc.close();
+    }
+}
