@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class DiagonalMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n;
+        System.out.print("Enter size of square matrix: ");
+        n = sc.nextInt();
+
+        int[][] matrix = new int[n][n];
+
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        boolean isDiagonal = true;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i != j && matrix[i][j] != 0) {
+                    isDiagonal = false;
+                    break;
+                }
+            }
+        }
+
+        if (isDiagonal)
+            System.out.println("Matrix is a Diagonal Matrix");
+        else
+            System.out.println("Matrix is NOT a Diagonal Matrix");
+
+        sc.close();
+    }
+}
