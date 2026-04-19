@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class PermutationMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter size of matrix (n): ");
+        int n = sc.nextInt();
+
+        int[][] matrix = new int[n][n];
+
+        System.out.println("Enter permutation (positions of 1 in each row):");
+        System.out.println("Note: Enter column index (0 to " + (n - 1) + ") for each row");
+
+        for (int i = 0; i < n; i++) {
+            int pos = sc.nextInt();
+
+            // Set all elements to 0 first
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = 0;
+            }
+
+            // Place 1 at the given position
+            if (pos >= 0 && pos < n) {
+                matrix[i][pos] = 1;
+            } else {
+                System.out.println("Invalid position! Try again.");
+                i--; // repeat the row
+            }
+        }
+
+        // Display matrix
+        System.out.println("Permutation Matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}
