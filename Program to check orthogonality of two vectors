@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class OrthogonalVectors {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n;
+        System.out.print("Enter size of vectors: ");
+        n = sc.nextInt();
+
+        int[] v1 = new int[n];
+        int[] v2 = new int[n];
+
+        System.out.println("Enter elements of first vector:");
+        for (int i = 0; i < n; i++) {
+            v1[i] = sc.nextInt();
+        }
+
+        System.out.println("Enter elements of second vector:");
+        for (int i = 0; i < n; i++) {
+            v2[i] = sc.nextInt();
+        }
+
+        int dotProduct = 0;
+
+        for (int i = 0; i < n; i++) {
+            dotProduct += v1[i] * v2[i];
+        }
+
+        if (dotProduct == 0) {
+            System.out.println("Vectors are Orthogonal");
+        } else {
+            System.out.println("Vectors are NOT Orthogonal");
+        }
+
+        sc.close();
+    }
+}
