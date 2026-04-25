@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class LinkedHashMapDemo {
+    public static void main(String[] args) {
+
+        // Create LinkedHashMap
+        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+
+        // Add elements
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Mango");
+        map.put(4, "Orange");
+
+        // Display elements (in insertion order)
+        System.out.println("Insertion Order:");
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+        // Access an element
+        map.get(2);
+
+        // Remove an element
+        map.remove(3);
+
+        System.out.println("\nAfter Access & Removal:");
+        System.out.println(map);
+    }
+}
