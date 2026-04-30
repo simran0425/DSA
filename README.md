@@ -1,2 +1,1 @@
-DSA:
 Welcome to my DSA repository! This repo contains implementations of various Data Structures and Algorithms in a structured and easy-to-understand way. It is part of my journey to improve problem-solving skills and prepare for technical interviews.
