@@ -38,7 +38,7 @@ public class BasicCalculator {
 
             default:
                 System.out.println("Invalid operator.");
-                return;
+                return; 
         }
         System.out.println("The final result:");
         System.out.println(num1 + " " + operator + " " + num2 + " = " + result);
