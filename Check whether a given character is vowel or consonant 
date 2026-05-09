@@ -10,4 +10,4 @@ public class Q {
          System.out.println("Given character is a consonant");
       } 
    }
-}
+} 
