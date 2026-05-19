@@ -24,7 +24,7 @@ class FordFulkerson {
                     visited[v] = true;
                 }
             }
-        }
+        } 
 
         return visited[t];
     }
