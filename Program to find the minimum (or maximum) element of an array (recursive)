@@ -12,4 +12,4 @@ public class Q{
         System.out.println("Minimum element of array: " + arr[0]);
         System.out.println("Maximum element of array: " + arr[arr.length - 1]);
     }
-}
+} 
