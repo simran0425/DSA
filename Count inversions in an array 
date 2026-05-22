@@ -4,7 +4,7 @@ public class InversionCounter {
         // Create a temporary array for the merge process
         int[] temp = new int[arr.length];
         return mergeSortAndCount(arr, temp, 0, arr.length - 1);
-    } 
+    }  
 
     private static long mergeSortAndCount(int[] arr, int[] temp, int left, int right) {
         long invCount = 0;
