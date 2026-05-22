@@ -4,7 +4,7 @@ public class DiagonalMatrix {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n;
+        int n; 
         System.out.print("Enter size of square matrix: ");
         n = sc.nextInt();
 
