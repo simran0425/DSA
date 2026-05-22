@@ -10,4 +10,4 @@ public class FactorialRecursion {
         int num = 5;
         System.out.println("Factorial: " + factorial(num));
     }
-}
+} 
