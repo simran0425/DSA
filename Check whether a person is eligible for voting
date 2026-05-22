@@ -13,6 +13,6 @@ public class VotingEligibility {
             System.out.println("You are not eligible to vote.");
         }
 
-        sc.close();
+        sc.close(); 
     }
 }
