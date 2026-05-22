@@ -17,7 +17,7 @@ class Queue {
             System.out.println("Removed: " + q[front++]);
         }
     }
-}
+} 
 
 public class QueueDemo {
     public static void main(String[] args) {
