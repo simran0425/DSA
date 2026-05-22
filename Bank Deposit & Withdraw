@@ -16,7 +16,7 @@ class BankAccount {
         } else {
             System.out.println("Invalid deposit amount!"); 
         }
-    }
+    } 
 
     // Withdraw method
     void withdraw(double amount) {
