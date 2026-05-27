@@ -2,7 +2,7 @@ public class PerfectSquareChecker {
     public static boolean isPerfectSquare(int num) {
         if (num < 0) {
             return false; // Perfect squares are always non-negative
-        }
+        } 
         // Calculate the square root
         double sqrtValue = Math.sqrt(num);
         
