@@ -13,7 +13,7 @@ class Tree {
   Node root;
 
   Tree() {
-  root = null;
+  root = null; 
   }
 
   void inOrder(Node node) {
