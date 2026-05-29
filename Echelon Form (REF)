@@ -15,7 +15,7 @@ public class EchelonForm {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 a[i][j] = sc.nextDouble();
-            }
+            } 
         }
 
         int lead = 0;
