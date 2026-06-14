@@ -8,7 +8,7 @@ public class InversionCounter {
 
     private static long mergeSortAndCount(int[] arr, int[] temp, int left, int right) {
         long invCount = 0;
-        if (right > left) {
+        if (right > left) { 
             int mid = (left + right) / 2;
             // Count inversions in left and right halves
             invCount += mergeSortAndCount(arr, temp, left, mid);
