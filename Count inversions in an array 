@@ -1,5 +1,4 @@
-public class InversionCounter {
-
+public class InversionCounter { 
     public static long countInversions(int[] arr) {
         // Create a temporary array for the merge process
         int[] temp = new int[arr.length];
