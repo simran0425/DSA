@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class BankAccount {
-    double balance; 
+    double balance;  
 
     // Constructor
     BankAccount(double initialBalance) {
