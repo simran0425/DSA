@@ -1,6 +1,6 @@
 class Queue {
     int front = 0, rear = -1;
-    int[] q = new int[5];
+    int[] q = new int[5]; 
 
     void enqueue(int x) {
         if (rear == 4) {
