@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.*; 
 
 class LRUCache<K, V> extends LinkedHashMap<K, V> {
     private int capacity;
